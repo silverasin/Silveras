@@ -868,9 +868,44 @@ lightbox.addEventListener("click", (e) => {
 
 <p data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_price_%22%2C%22to%22%3A%22innerHTML%22%7D%5D" class="product-detail-price">₹ 599  <span style="font-size:15px;"><del>₹ 999</del></span></p>
 
+	
+<style>
+.shine-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Silver Shine Effect */
+.shine-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(192,192,192,0.6) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: shineMove 2.5s infinite;
+}
+
+/* Animation */
+@keyframes shineMove {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+</style>
 
 	<a href="#" onclick="niraOpen(); return false;" 
-   class="subscribe-button w-button">
+   class="subscribe-button w-button shine-btn">
 Buy Now 
 </a>
 	
