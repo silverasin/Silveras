@@ -1503,14 +1503,65 @@ function prevImage8472() {
   document.getElementById("fullscreenImg-8472").src = images8472[currentIndex8472];
 }
 
-	<p>test</p>
-
+	const reviewsData8472 = [
+  {
+    name: "Aarav Sharma",
+    rating: 5,
+    text: "Amazing fragrance, long lasting and premium feel."
+  },
+  {
+    name: "Priya Patel",
+    rating: 4,
+    text: "Very nice perfume, loved the packaging."
+  },
+  {
+    name: "Rohan Mehta",
+    rating: 5,
+    text: "Best perfume in this price range. Totally worth it."
+  },
+  {
+    name: "Sneha Iyer",
+    rating: 4,
+    text: "Fragrance is good, stays for a decent time."
+  },
+  {
+    name: "Karan Verma",
+    rating: 5,
+    text: "Highly recommended! Smells luxurious."
+  },
+  {
+    name: "Ananya Singh",
+    rating: 3,
+    text: "Good but could last longer."
+  },
+  {
+    name: "Rahul Gupta",
+    rating: 4,
+    text: "Nice daily use perfume."
+  },
+  {
+    name: "Neha Kapoor",
+    rating: 5,
+    text: "Loved it! Will buy again."
+  },
+  {
+    name: "Vikram Joshi",
+    rating: 4,
+    text: "Good quality and value for money."
+  },
+  {
+    name: "Pooja Desai",
+    rating: 5,
+    text: "Elegant fragrance, perfect for special occasions."
+  }
+];
+/*
 const reviewsData8472 = Array.from({length: 10}, (_, i) => ({
   name: "User " + (i+1),
   rating: Math.floor(Math.random() * 5) + 1,
   text: "This is a sample review from user " + (i+1)
 }));
-
+*/
 const reviewsDiv8472 = document.getElementById("reviews-8472");
 
 reviewsData8472.forEach(r => {
