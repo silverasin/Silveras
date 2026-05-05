@@ -1277,6 +1277,23 @@ body {
   cursor: pointer;
 }
 
+/* NEW: Navigation Buttons */
+.unique-nav-btn-8472 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.unique-prev-8472 { left: 15px; }
+.unique-next-8472 { right: 15px; }
+
 .unique-reviews-header-8472 {
   display: flex;
   justify-content: flex-end;
@@ -1310,7 +1327,6 @@ body {
 
 <div id="sr_review_container" style="text-align:center; margin-top:50px;">
 
-  <!-- Button -->
   <button id="sr_openPopupBtn" style="
     background:#000;
     color:#fff;
@@ -1325,7 +1341,6 @@ body {
 
 </div>
 
-<!-- Popup -->
 <div id="sr_popup" style="
   display:none;
   position:fixed;
@@ -1347,7 +1362,6 @@ body {
     position:relative;
   ">
 
-    <!-- Close -->
     <span onclick="sr_closePopup()" style="
       position:absolute;
       right:10px;
@@ -1360,7 +1374,6 @@ body {
       Enter ORDER ID To Fetch Your Name
     </p>
 
-    <!-- Input -->
     <input id="sr_orderId" type="number" placeholder="Enter Order ID" style="
       width:100%;
       padding:10px;
@@ -1369,7 +1382,6 @@ body {
       border-radius:5px;
     ">
 
-    <!-- Button -->
     <button id="sr_fetchBtn" disabled style="
       width:100%;
       padding:10px;
@@ -1383,7 +1395,6 @@ body {
       Fetch Customer Name
     </button>
 
-    <!-- Error -->
     <p id="sr_errorMsg" style="
       color:red;
       font-size:13px;
@@ -1411,7 +1422,6 @@ body {
     sr_popup.style.display = "none";
   }
 
-  // Enable button only when input filled
   sr_input.addEventListener("input", () => {
     if(sr_input.value.trim() !== ""){
       sr_fetchBtn.disabled = false;
@@ -1424,31 +1434,35 @@ body {
     }
   });
 
-  // Show error
   sr_fetchBtn.onclick = () => {
     sr_errorMsg.style.display = "block";
   };
 </script>
+
 </div>
 
 <div class="unique-fullscreen-8472" id="fullscreen-8472" onclick="closeFullscreen8472(event)">
   <span class="unique-close-btn-8472" onclick="closeFullscreen8472(event)">✖</span>
+
+  <!-- NEW BUTTONS -->
+  <span class="unique-nav-btn-8472 unique-prev-8472" onclick="prevImage8472()">❮</span>
+  <span class="unique-nav-btn-8472 unique-next-8472" onclick="nextImage8472()">❯</span>
+
   <img id="fullscreenImg-8472">
 </div>
 
 <script>
 const images8472 = [
  "imgs/r1.jpg",
-  "imgs/r2.jpg",
-  "imgs/r3.jpg",
-  "imgs/r4.jpg",
-  "imgs/r5.jpg",
-  "imgs/r6.png",
-  "imgs/r7.jpg",
-  "imgs/r8.jpg",
-  "imgs/r9.jpg",
-  "imgs/r10.jpg"
-
+ "imgs/r2.jpg",
+ "imgs/r3.jpg",
+ "imgs/r4.jpg",
+ "imgs/r5.jpg",
+ "imgs/r6.png",
+ "imgs/r7.jpg",
+ "imgs/r8.jpg",
+ "imgs/r9.jpg",
+ "imgs/r10.jpg"
 ];
 
 let currentIndex8472 = 0;
@@ -1500,64 +1514,17 @@ function prevImage8472() {
 }
 
 const reviewsData8472 = [
-  {
-    name: "Harsh saxena",
-    rating: 5,
-    text: "very nice perfume and Long lasting."
-  },
-  {
-    name: "piyush kumar",
-    rating: 4,
-    text: "Dawn spray 4-5 ghante strong rehta hai."
-  },
-  {
-    name: "Ayushi D",
-    rating: 4,
-    text: "Best perfume in this price range, worth it."
-  },
-  {
-    name: "Raveena Goyal",
-    rating: 4,
-    text: "I gifted dusk & dawn combo to my husband, he is loving it."
-  },
-  {
-    name: "Suraj mahato",
-    rating: 5,
-    text: "Best ever perfume with luxury packaging in this price range. Long lasting too."
-  },
-  {
-    name: "Ananya Jain",
-    rating: 3,
-    text: "Good but could last longer."
-  },
-  {
-    name: "ekam gupta",
-    rating: 4,
-    text: "luxury packaging, long lasting, overall worth for mooney"
-  },
-  {
-    name: "Ravi Pandey",
-    rating: 5,
-    text: "This smells so good, it lasts long. Best for gifting because of its packaging.."
-  },
-  {
-    name: "Vikram desai",
-    rating: 4,
-    text: "dusk thoda dark hai lekin accha smell krta hai."
-  },
-  {
-    name: "Pooja Desai",
-    rating: 5,
-    text: "Actually it's smells lighter after 5 hours, but no matter in this price it's worth."
-  }
+  { name: "Harsh saxena", rating: 5, text: "very nice perfume and Long lasting." },
+  { name: "piyush kumar", rating: 4, text: "Dawn spray 4-5 ghante strong rehta hai." },
+  { name: "Ayushi D", rating: 4, text: "Best perfume in this price range, worth it." },
+  { name: "Raveena Goyal", rating: 4, text: "I gifted dusk & dawn combo to my husband, he is loving it." },
+  { name: "Suraj mahato", rating: 5, text: "Best ever perfume with luxury packaging in this price range. Long lasting too." },
+  { name: "Ananya Jain", rating: 3, text: "Good but could last longer." },
+  { name: "ekam gupta", rating: 4, text: "luxury packaging, long lasting, overall worth for mooney" },
+  { name: "Ravi Pandey", rating: 5, text: "This smells so good, it lasts long. Best for gifting because of its packaging.." },
+  { name: "Vikram desai", rating: 4, text: "dusk thoda dark hai lekin accha smell krta hai." },
+  { name: "Pooja Desai", rating: 5, text: "Actually it's smells lighter after 5 hours, but no matter in this price it's worth." }
 ];
-/*
-const reviewsData8472 = Array.from({length: 10}, (_, i) => ({
-  name: "User " + (i+1),
-  rating: Math.floor(Math.random() * 5) + 1,
-  text: "This is a sample review from user " + (i+1)
-}));
-*/
 
 const reviewsDiv8472 = document.getElementById("reviews-8472");
 
@@ -1574,7 +1541,7 @@ function toggleReviews8472() {
 }
 </script>
 
-<center><br>
+	<center><br>
 <img src="imgs/mark.png" 
        style="display:block; margin:auto; width:90%; height:auto;" 
        alt="Image">
