@@ -512,6 +512,86 @@
 </div>
 
 <style>
+
+  .timer-container {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .flip-timer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .flip-card {
+    position: relative;
+    width: 70px;
+    height: 90px;
+    perspective: 200px;
+  }
+
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+  }
+
+  .top {
+    transform-origin: bottom;
+  }
+
+  .bottom {
+    transform: rotateX(180deg);
+    transform-origin: top;
+  }
+
+  .flip {
+    animation: flip 0.7s ease-in-out;
+  }
+
+  @keyframes flip {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(-180deg); }
+  }
+
+  .label {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .flip-card {
+      width: 50px;
+      height: 70px;
+    }
+    .card {
+      font-size: 24px;
+    }
+  }
+</style>
+
+<style>
 .silveras-burst-wrap{
   position: relative;
   width: 100%;
@@ -631,86 +711,6 @@
 
 })();
 </script>
-<style>
-
-  .timer-container {
-    text-align: center;
-  }
-
-  .title {
-    font-size: 20px;
-    margin-bottom: 12px;
-  }
-
-  .flip-timer {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .flip-card {
-    position: relative;
-    width: 70px;
-    height: 90px;
-    perspective: 200px;
-  }
-
-  .card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background: #222;
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backface-visibility: hidden;
-  }
-
-  .top {
-    transform-origin: bottom;
-  }
-
-  .bottom {
-    transform: rotateX(180deg);
-    transform-origin: top;
-  }
-
-  .flip {
-    animation: flip 0.7s ease-in-out;
-  }
-
-  @keyframes flip {
-    0% { transform: rotateX(0deg); }
-    100% { transform: rotateX(-180deg); }
-  }
-
-  .label {
-    margin-top: 5px;
-    font-size: 12px;
-    text-align: center;
-  }
-
-  .unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @media (max-width: 600px) {
-    .flip-card {
-      width: 50px;
-      height: 70px;
-    }
-    .card {
-      font-size: 24px;
-    }
-  }
-</style>
-
 <h5 style="text-align: center;">Founder <b>Bharati Chaudhari's</b> Birthday<br>Offer Ends In</h5>
 <div class="timer-container">
   <div class="flip-timer">
