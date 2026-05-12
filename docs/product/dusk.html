@@ -506,6 +506,131 @@
 </div>
 </header>
 <br>
+	<div class="silveras-burst-wrap">
+  <!-- Birthday Paper Blast -->
+  <div class="silveras-paper-blast" id="silverasPaperBlast"></div>
+</div>
+
+<style>
+.silveras-burst-wrap{
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.silveras-paper-blast{
+  position: absolute;
+  inset: 0;
+}
+
+/* Confetti Pieces */
+.silveras-confetti{
+  position: absolute;
+  width: 10px;
+  height: 18px;
+  opacity: 0;
+  animation: silverasBlastAnim 2.8s ease-out forwards;
+  border-radius: 2px;
+}
+
+/* Animation */
+@keyframes silverasBlastAnim{
+  0%{
+    transform: translate(0,0) rotate(0deg);
+    opacity: 1;
+  }
+
+  15%{
+    opacity: 1;
+  }
+
+  100%{
+    transform:
+      translate(var(--x), var(--y))
+      rotate(var(--r));
+    opacity: 0;
+  }
+}
+</style>
+
+<script>
+(function(){
+
+  const container = document.getElementById("silverasPaperBlast");
+
+  const colors = [
+    "#ff1744",
+    "#ff9100",
+    "#ffd600",
+    "#00e676",
+    "#00b0ff",
+    "#d500f9",
+    "#ffffff"
+  ];
+
+  function createConfetti(side){
+
+    for(let i=0; i<45; i++){
+
+      const piece = document.createElement("div");
+      piece.className = "silveras-confetti";
+
+      const size = Math.random() * 10 + 6;
+
+      piece.style.width = size + "px";
+      piece.style.height = (size * 1.7) + "px";
+      piece.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      piece.style.top = (120 + Math.random() * 40) + "px";
+
+      if(side === "left"){
+        piece.style.left = "-20px";
+
+        piece.style.setProperty(
+          "--x",
+          (Math.random() * 500 + 150) + "px"
+        );
+      } else {
+
+        piece.style.right = "-20px";
+
+        piece.style.setProperty(
+          "--x",
+          (-1 * (Math.random() * 500 + 150)) + "px"
+        );
+      }
+
+      piece.style.setProperty(
+        "--y",
+        (-1 * (Math.random() * 260 + 80)) + "px"
+      );
+
+      piece.style.setProperty(
+        "--r",
+        (Math.random() * 1080 - 540) + "deg"
+      );
+
+      piece.style.animationDelay =
+        (Math.random() * 0.15) + "s";
+
+      container.appendChild(piece);
+
+      setTimeout(() => {
+        piece.remove();
+      }, 3000);
+    }
+  }
+
+  window.addEventListener("load", () => {
+    createConfetti("left");
+    createConfetti("right");
+  });
+
+})();
+</script>
 <style>
 
   .timer-container {
